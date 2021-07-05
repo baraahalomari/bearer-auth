@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 const jwt = require("jsonwebtoken");
+const base64 = require('base-64');
 
 const users = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
@@ -16,7 +17,7 @@ users.virtual('token').get(function () {
   let tokenObject = {
     username: this.username,
   }
-  return jwt.sign(tokenObject,process.env.SECRET,{ expiresIn: '1h' })
+  return jwt.sign(tokenObject,base64.encode(process.env.SECRET),{ expiresIn: '15min' })
 });
 
 users.pre('save', async function () {
@@ -36,7 +37,7 @@ users.statics.authenticateBasic = async function (username, password) {
 // BEARER AUTH
 users.statics.authenticateWithToken = async function (token) {
   try {
-    const parsedToken = jwt.verify(token, process.env.SECRET);
+    const parsedToken = jwt.verify(token, base64.encode(process.env.SECRET));
     const user = this.findOne({ username: parsedToken.username })
     if (user) { return user; }
     throw new Error("User Not Found");

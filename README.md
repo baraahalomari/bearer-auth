@@ -4,6 +4,9 @@
 
 I create a server for the backend and some test
 
+> Task 1: Fix The Bugs
+> Task 2: Secure the JWT Tokens
+
 ## Pull_request for the repo
 
 

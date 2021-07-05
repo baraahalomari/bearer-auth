@@ -9,17 +9,17 @@ I create a server for the backend and some test
 
 ## Pull_request for the repo
 
-
+https://github.com/baraahalomari/bearer-auth/pull/1
 
 
 ## Github actions
 
-
+https://github.com/baraahalomari/bearer-auth/actions
 
 
 ## Heroku applications
 
-
+ https://balomari-bearer-auth.herokuapp.com/
 
 
 ## UML diagram

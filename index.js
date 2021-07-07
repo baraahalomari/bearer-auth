@@ -1,5 +1,6 @@
 'use strict';
 
+console.log('hhh');
 // Start up DB Server
 const mongoose = require('mongoose');
 const options = {
